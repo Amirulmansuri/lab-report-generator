@@ -1,0 +1,290 @@
+{
+    "Bilirubin": [
+        {
+            "name": "Total Bilirubin",
+            "range": "0.3 - 1.2 mg/dL",
+            "unit": "mg/dL"
+        },
+        {
+            "name": "Direct Bilirubin",
+            "range": "0.1 - 0.3 mg/dL",
+            "unit": "mg/dL"
+        },
+        {
+            "name": "Indirect Bilirubin",
+            "range": "0.2 - 0.9 mg/dL",
+            "unit": "mg/dL"
+        }
+    ],
+    "Bio-Urea-Crea": [
+        {
+            "name": "Urea",
+            "range": "15 - 45 mg/dL",
+            "unit": "mg/dL"
+        },
+        {
+            "name": "Creatinine",
+            "range": "0.7 - 1.4 mg/dL",
+            "unit": "mg/dL"
+        }
+    ],
+    "CBC-Indices": [
+        {
+            "name": "Hemoglobin",
+            "range": "13 - 17 g/dL (Male), 12 - 15 g/dL (Female)",
+            "unit": "g/dL"
+        },
+        {
+            "name": "RBC Count",
+            "range": "4.5 - 5.9 mill/cmm",
+            "unit": "mill/cmm"
+        },
+        {
+            "name": "WBC Count",
+            "range": "4000 - 11000 /cmm",
+            "unit": "/cmm"
+        },
+        {
+            "name": "Platelets",
+            "range": "1.5 - 4.5 lakh/cmm",
+            "unit": "lakh/cmm"
+        }
+    ],
+    "CRP": [
+        {
+            "name": "C-Reactive Protein",
+            "range": "< 6 mg/L",
+            "unit": "mg/L"
+        }
+    ],
+    "CT-BT": [
+        {
+            "name": "Clotting Time",
+            "range": "2 - 6 min",
+            "unit": "min"
+        },
+        {
+            "name": "Bleeding Time",
+            "range": "1 - 3 min",
+            "unit": "min"
+        }
+    ],
+    "HbA1c": [
+        {
+            "name": "HbA1c",
+            "range": "4.0 - 5.6 %",
+            "unit": "%"
+        }
+    ],
+    "HIV": [
+        {
+            "name": "HIV I/II",
+            "range": "Non-Reactive",
+            "unit": ""
+        }
+    ],
+    "LFT": [
+        {
+            "name": "SGOT (AST)",
+            "range": "0 - 40 U/L",
+            "unit": "U/L"
+        },
+        {
+            "name": "SGPT (ALT)",
+            "range": "0 - 40 U/L",
+            "unit": "U/L"
+        },
+        {
+            "name": "Alkaline Phosphatase",
+            "range": "40 - 125 U/L",
+            "unit": "U/L"
+        },
+        {
+            "name": "Total Protein",
+            "range": "6.0 - 8.0 g/dL",
+            "unit": "g/dL"
+        },
+        {
+            "name": "Albumin",
+            "range": "3.5 - 5.0 g/dL",
+            "unit": "g/dL"
+        }
+    ],
+    "Lipid": [
+        {
+            "name": "Total Cholesterol",
+            "range": "< 200 mg/dL",
+            "unit": "mg/dL"
+        },
+        {
+            "name": "HDL Cholesterol",
+            "range": "> 40 mg/dL",
+            "unit": "mg/dL"
+        },
+        {
+            "name": "LDL Cholesterol",
+            "range": "< 130 mg/dL",
+            "unit": "mg/dL"
+        },
+        {
+            "name": "Triglycerides",
+            "range": "< 150 mg/dL",
+            "unit": "mg/dL"
+        }
+    ],
+    "M-Bio": [
+        {
+            "name": "Uric Acid",
+            "range": "3.4 - 7.0 mg/dL",
+            "unit": "mg/dL"
+        },
+        {
+            "name": "Calcium",
+            "range": "8.5 - 10.5 mg/dL",
+            "unit": "mg/dL"
+        },
+        {
+            "name": "Phosphorus",
+            "range": "2.5 - 4.5 mg/dL",
+            "unit": "mg/dL"
+        }
+    ],
+    "Pregnancy": [
+        {
+            "name": "Urine Pregnancy Test",
+            "range": "Negative",
+            "unit": ""
+        }
+    ],
+    "Pro-Time": [
+        {
+            "name": "Prothrombin Time",
+            "range": "11 - 16 sec",
+            "unit": "sec"
+        },
+        {
+            "name": "INR",
+            "range": "0.8 - 1.2",
+            "unit": ""
+        }
+    ],
+    "S. Widal": [
+        {
+            "name": "O Antigen",
+            "range": "< 1:80",
+            "unit": "Titre"
+        },
+        {
+            "name": "H Antigen",
+            "range": "< 1:80",
+            "unit": "Titre"
+        }
+    ],
+    "Semen": [
+        {
+            "name": "Volume",
+            "range": "2 - 5 mL",
+            "unit": "mL"
+        },
+        {
+            "name": "Sperm Count",
+            "range": "> 15 million/mL",
+            "unit": "million/mL"
+        },
+        {
+            "name": "Motility",
+            "range": "> 40%",
+            "unit": "%"
+        }
+    ],
+    "Sickle Cell": [
+        {
+            "name": "Sickle Cell Test",
+            "range": "Negative",
+            "unit": ""
+        }
+    ],
+    "Stool": [
+        {
+            "name": "Consistency",
+            "range": "Formed",
+            "unit": ""
+        },
+        {
+            "name": "Color",
+            "range": "Brown",
+            "unit": ""
+        },
+        {
+            "name": "Mucus",
+            "range": "Absent",
+            "unit": ""
+        },
+        {
+            "name": "Occult Blood",
+            "range": "Negative",
+            "unit": ""
+        }
+    ],
+    "Sugar": [
+        {
+            "name": "Fasting Sugar",
+            "range": "70 - 110 mg/dL",
+            "unit": "mg/dL"
+        },
+        {
+            "name": "Post-Prandial",
+            "range": "< 140 mg/dL",
+            "unit": "mg/dL"
+        }
+    ],
+    "Thyroid Test": [
+        {
+            "name": "T3",
+            "range": "0.8 - 2.0 ng/mL",
+            "unit": "ng/mL"
+        },
+        {
+            "name": "T4",
+            "range": "5.1 - 14.1 µg/dL",
+            "unit": "µg/dL"
+        },
+        {
+            "name": "TSH",
+            "range": "0.3 - 5.0 µIU/mL",
+            "unit": "µIU/mL"
+        }
+    ],
+    "Urine": [
+        {
+            "name": "Color",
+            "range": "Pale Yellow",
+            "unit": ""
+        },
+        {
+            "name": "Reaction (pH)",
+            "range": "5.0 - 7.5",
+            "unit": ""
+        },
+        {
+            "name": "Protein",
+            "range": "Absent",
+            "unit": ""
+        },
+        {
+            "name": "Sugar",
+            "range": "Absent",
+            "unit": ""
+        },
+        {
+            "name": "Pus Cells",
+            "range": "0 - 5 /HPF",
+            "unit": "/HPF"
+        },
+        {
+            "name": "RBC",
+            "range": "0 - 2 /HPF",
+            "unit": "/HPF"
+        }
+    ]
+}
