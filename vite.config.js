@@ -1,15 +1,12 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+// vite.config.js
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 
-// https://vite.dev/config/
 export default defineConfig({
-  base: '/lab-report-generator/', // 👈 REQUIRED for GitHub Pages
-  plugins: [
-    react(),
-    tailwindcss()
-  ],
-  base: '/lab-report-generator/', // 👈 Important for GitHub Pages
+  plugins: [react(), tailwindcss()],
+  base: "/lab-report-generator/", // 👈 Required for GitHub Pages
+
 
   server: {
     host: true,
