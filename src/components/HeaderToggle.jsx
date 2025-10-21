@@ -33,7 +33,7 @@ export function CustomHeader() {
                 {/* Left side - Logo */}
                 <div className="flex items-center space-x-3">
                     <img
-                        src="/src/assets/lab_logo1.png"
+                        src="public/src/assets/lab_logo1.png"
                         alt="Lab Logo"
                         className="w-16 h-16 object-contain"
                     />
@@ -41,11 +41,11 @@ export function CustomHeader() {
                         <h1 className="text-2xl font-extrabold text-red-700 uppercase leading-tight">
                             Maruti Nisarg Laboratory (Patho)
                         </h1>
-                        
+
                     </div>
                 </div>
 
-                
+
             </div>
 
             {/* Divider */}
@@ -69,7 +69,7 @@ export function CustomHeader() {
                 </div>
 
                 {/* Right side - Contact info */}
-                
+
 
                 {/* <p className="italic text-gray-700">Committed to accurate diagnostics & patient care</p> */}
             </div>

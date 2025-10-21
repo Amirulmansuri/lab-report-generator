@@ -9,6 +9,8 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+  base: '/lab-report-generator/', // 👈 Important for GitHub Pages
+
   server: {
     host: true,
     allowedHosts: ['.ngrok-free.dev']

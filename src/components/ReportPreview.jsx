@@ -29,32 +29,14 @@ function ReportPreview({ patientData, tests, includeHeader, reportName }) {
             const pdf = new jsPDF("p", "mm", "a4");
             const pdfWidth = pdf.internal.pageSize.getWidth();
             const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+
             pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
 
             const fileName = `${localPatient?.name || "Lab_Report"}_${localPatient?.patientId || "ID"}.pdf`;
 
-            if (window.showSaveFilePicker) {
-                try {
-                    const handle = await window.showSaveFilePicker({
-                        suggestedName: fileName,
-                        types: [
-                            { description: "PDF file", accept: { "application/pdf": [".pdf"] } },
-                        ],
-                    });
-
-                    const writable = await handle.createWritable();
-                    await writable.write(pdf.output("arraybuffer"));
-                    await writable.close();
-
-                    alert("✅ Report saved successfully!");
-                } catch (saveError) {
-                    console.warn("User canceled or file system blocked:", saveError);
-                    pdf.save(fileName);
-                }
-            } else {
-                pdf.save(fileName);
-                alert("Your browser doesn’t support folder browsing — file auto-downloaded.");
-            }
+            // Use only auto-download method (for GitHub Pages support)
+            pdf.save(fileName);
+            alert("✅ Report downloaded successfully!");
         } catch (err) {
             console.error("Save failed:", err);
             alert("❌ Something went wrong while saving the report.");
@@ -124,7 +106,7 @@ function ReportPreview({ patientData, tests, includeHeader, reportName }) {
                     onClick={handleSavePDF}
                     className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition"
                 >
-                    💾 Save as PDF
+                    Save as PDF
                 </button>
             </div>
         </div>
