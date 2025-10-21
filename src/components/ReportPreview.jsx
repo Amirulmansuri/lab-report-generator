@@ -16,13 +16,33 @@ function ReportPreview({ patientData, tests, includeHeader, reportName }) {
         if (reportName) setLocalReportName(reportName);
     }, [patientData, tests, reportName]);
 
+    // ✅ Wait for all images to load before taking screenshot
+    const waitForImages = (element) => {
+        const images = element.getElementsByTagName("img");
+        return Promise.all(
+            Array.from(images).map(
+                (img) =>
+                    new Promise((resolve) => {
+                        if (img.complete) resolve();
+                        else img.onload = img.onerror = resolve;
+                    })
+            )
+        );
+    };
+
     const handleSavePDF = async () => {
         if (!reportRef.current) return;
 
         try {
+            await waitForImages(reportRef.current);
+
             const canvas = await html2canvas(reportRef.current, {
                 scale: 2,
                 useCORS: true,
+                allowTaint: true,
+                backgroundColor: "#ffffff",
+                logging: false,
+                imageTimeout: 5000,
             });
 
             const imgData = canvas.toDataURL("image/png");
@@ -33,28 +53,29 @@ function ReportPreview({ patientData, tests, includeHeader, reportName }) {
             pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
 
             const fileName = `${localPatient?.name || "Lab_Report"}_${localPatient?.patientId || "ID"}.pdf`;
-
-            // Use only auto-download method (for GitHub Pages support)
             pdf.save(fileName);
-            alert("✅ Report downloaded successfully!");
+
+            alert("✅ Report saved successfully!");
         } catch (err) {
-            console.error("Save failed:", err);
-            alert("❌ Something went wrong while saving the report.");
+            console.error("❌ PDF save failed:", err);
+            alert("Something went wrong while saving the report.");
         }
     };
 
     return (
         <div className="mt-6">
-            <div ref={reportRef} className="bg-white p-6 rounded-lg shadow-md text-sm leading-relaxed">
-
-                {/* HEADER (Optional) */}
+            <div
+                ref={reportRef}
+                className="bg-white p-6 rounded-lg shadow-md text-sm leading-relaxed"
+            >
+                {/* Optional Header */}
                 {includeHeader && (
                     <div className="mb-4">
                         <CustomHeader />
                     </div>
                 )}
 
-                {/* PATIENT INFO */}
+                {/* Patient Info */}
                 {localPatient && (
                     <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
                         <p><strong>Patient ID:</strong> {localPatient.patientId}</p>
@@ -66,14 +87,14 @@ function ReportPreview({ patientData, tests, includeHeader, reportName }) {
                     </div>
                 )}
 
-                {/* ✅ REPORT NAME HEADING */}
+                {/* Report Name */}
                 {localReportName && (
                     <h3 className="text-center text-xl font-bold text-red-700 underline mb-3 uppercase tracking-wide">
                         🧾 {localReportName} Report
                     </h3>
                 )}
 
-                {/* TEST RESULTS */}
+                {/* Test Results */}
                 {localTests?.length > 0 ? (
                     <table className="w-full border-collapse border border-gray-400 text-center">
                         <thead className="bg-gray-200">
@@ -100,7 +121,7 @@ function ReportPreview({ patientData, tests, includeHeader, reportName }) {
                 )}
             </div>
 
-            {/* SAVE BUTTON */}
+            {/* Save Button */}
             <div className="mt-4 text-right">
                 <button
                     onClick={handleSavePDF}

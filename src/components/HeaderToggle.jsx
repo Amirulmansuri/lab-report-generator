@@ -27,25 +27,27 @@ function HeaderToggle({ onToggle }) {
 }
 
 export function CustomHeader() {
+    // ✅ Always load logo from /public (works on GitHub + localhost)
+    const logoPath = `${window.location.origin}/lab_logo1.png`;
+
     return (
-        <div className="border-2 border-black p-3 rounded-md shadow-sm">
+        <div className="border-2 border-black p-3 rounded-md shadow-sm bg-white">
             <div className="flex justify-between items-center">
                 {/* Left side - Logo */}
                 <div className="flex items-center space-x-3">
                     <img
-                        src="public/src/assets/lab_logo1.png"
+                        src={logoPath}
                         alt="Lab Logo"
+                        crossOrigin="anonymous"
                         className="w-16 h-16 object-contain"
+                        onError={(e) => (e.target.style.display = "none")}
                     />
                     <div>
                         <h1 className="text-2xl font-extrabold text-red-700 uppercase leading-tight">
                             Maruti Nisarg Laboratory (Patho)
                         </h1>
-
                     </div>
                 </div>
-
-
             </div>
 
             {/* Divider */}
@@ -59,7 +61,9 @@ export function CustomHeader() {
                 <div className="text-center text-sm">
                     <p className="font-semibold">Time - 8.30 am to 8.00 pm</p>
                     <p className="font-semibold">Sun - Closed</p>
-                    <p className="font-semibold">Nr.Nagrik Bank,Soni Bazar,Sinor-391115 ,Dist. Vadodara</p>
+                    <p className="font-semibold">
+                        Nr. Nagrik Bank, Soni Bazar, Sinor-391115, Dist. Vadodara
+                    </p>
                 </div>
 
                 <div className="text-right">
@@ -67,11 +71,6 @@ export function CustomHeader() {
                     <p><em>B.Sc. MLT</em></p>
                     <p>Mo. 8849082370</p>
                 </div>
-
-                {/* Right side - Contact info */}
-
-
-                {/* <p className="italic text-gray-700">Committed to accurate diagnostics & patient care</p> */}
             </div>
         </div>
     );
