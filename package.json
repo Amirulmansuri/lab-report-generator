@@ -1,15 +1,14 @@
 {
   "name": "lab-report-app",
+  "homepage": "https://amirulmansuri.github.io/lab-report-generator",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://Amirulmansuri.github.io/lab-report-app",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {

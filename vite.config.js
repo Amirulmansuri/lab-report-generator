@@ -4,17 +4,13 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/lab-report-generator/', // 👈 REQUIRED for GitHub Pages
   plugins: [
     react(),
     tailwindcss()
   ],
-
-  // --- Add this server section ---
   server: {
-    host: true, // Allows access from network
-    // This is the part that fixes the "Blocked request" error
-    allowedHosts: [
-      '.ngrok-free.dev'
-    ]
+    host: true,
+    allowedHosts: ['.ngrok-free.dev']
   }
 })
