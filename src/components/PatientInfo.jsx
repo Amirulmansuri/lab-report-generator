@@ -54,17 +54,37 @@ export default function PatientInfo({ onSave }) {
     };
 
     return (
-        <div className="bg-white p-4 rounded-lg shadow">
-            <h2 className="text-lg font-semibold mb-4">Patient Information</h2>
+        <div
+            style={{
+                backgroundColor: "#ffffff",
+                padding: "16px",
+                borderRadius: "8px",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+                marginBottom: "16px",
+            }}
+        >
+            <h2 style={{ fontSize: "18px", fontWeight: 600, marginBottom: "12px" }}>
+                Patient Information
+            </h2>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div
+                style={{
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr",
+                    gap: "12px",
+                }}
+            >
                 <input
                     type="text"
                     name="name"
                     placeholder="Patient Name"
                     value={info.name}
                     onChange={handleChange}
-                    className="p-2 border rounded"
+                    style={{
+                        padding: "8px",
+                        border: "1px solid #ccc",
+                        borderRadius: "6px",
+                    }}
                 />
                 <input
                     type="number"
@@ -72,14 +92,22 @@ export default function PatientInfo({ onSave }) {
                     placeholder="Age"
                     value={info.age}
                     onChange={handleChange}
-                    className="p-2 border rounded"
+                    style={{
+                        padding: "8px",
+                        border: "1px solid #ccc",
+                        borderRadius: "6px",
+                    }}
                 />
 
                 <select
                     name="gender"
                     value={info.gender}
                     onChange={handleChange}
-                    className="p-2 border rounded"
+                    style={{
+                        padding: "8px",
+                        border: "1px solid #ccc",
+                        borderRadius: "6px",
+                    }}
                 >
                     <option>Male</option>
                     <option>Female</option>
@@ -92,7 +120,11 @@ export default function PatientInfo({ onSave }) {
                     placeholder="Contact Number"
                     value={info.contact}
                     onChange={handleChange}
-                    className="p-2 border rounded"
+                    style={{
+                        padding: "8px",
+                        border: "1px solid #ccc",
+                        borderRadius: "6px",
+                    }}
                 />
 
                 <input
@@ -100,7 +132,12 @@ export default function PatientInfo({ onSave }) {
                     name="date"
                     value={info.date}
                     readOnly
-                    className="p-2 border rounded bg-gray-100"
+                    style={{
+                        padding: "8px",
+                        border: "1px solid #ccc",
+                        borderRadius: "6px",
+                        backgroundColor: "#f3f4f6", // gray-100 equivalent
+                    }}
                 />
 
                 <input
@@ -108,13 +145,29 @@ export default function PatientInfo({ onSave }) {
                     name="patientId"
                     value={info.patientId}
                     readOnly
-                    className="p-2 border rounded bg-gray-100 font-semibold"
+                    style={{
+                        padding: "8px",
+                        border: "1px solid #ccc",
+                        borderRadius: "6px",
+                        backgroundColor: "#f3f4f6",
+                        fontWeight: 600,
+                    }}
                 />
             </div>
 
             <button
                 onClick={handleSave}
-                className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                style={{
+                    marginTop: "16px",
+                    backgroundColor: "#2563eb", // blue-600
+                    color: "#ffffff",
+                    padding: "8px 16px",
+                    border: "none",
+                    borderRadius: "6px",
+                    cursor: "pointer",
+                }}
+                onMouseOver={(e) => (e.target.style.backgroundColor = "#1e40af")}
+                onMouseOut={(e) => (e.target.style.backgroundColor = "#2563eb")}
             >
                 Save Info
             </button>

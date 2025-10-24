@@ -1,4 +1,3 @@
-// src/components/HeaderToggle.jsx
 import { useState } from "react";
 
 function HeaderToggle({ onToggle }) {
@@ -11,62 +10,99 @@ function HeaderToggle({ onToggle }) {
     };
 
     return (
-        <div className="mb-4 flex items-center space-x-2">
+        <div style={{ marginBottom: "1rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
             <input
                 type="checkbox"
                 id="headerToggle"
                 checked={includeHeader}
                 onChange={handleChange}
-                className="accent-red-600 w-4 h-4"
+                style={{
+                    accentColor: "#dc2626", // red-600
+                    width: "16px",
+                    height: "16px",
+                }}
             />
-            <label htmlFor="headerToggle" className="font-medium">
+            <label htmlFor="headerToggle" style={{ fontWeight: 500 }}>
                 Include Header in Report
             </label>
         </div>
     );
 }
 
-// src/components/HeaderToggle.jsx
+// ✅ Compatible version of CustomHeader
 export function CustomHeader() {
-    // ✅ use import.meta.env.BASE_URL (Vite auto handles base path)
     const logoPath = `${import.meta.env.BASE_URL}lab_logo1.png`;
 
     return (
-        <div className="border-2 border-black p-3 rounded-md shadow-sm bg-white">
-            <div className="flex justify-between items-center">
-                <div className="flex items-center space-x-3">
+        <div
+            style={{
+                border: "2px solid #000",
+                padding: "12px",
+                borderRadius: "6px",
+                backgroundColor: "#fff",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+            }}
+        >
+            {/* Header Top Section */}
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                     <img
                         src={logoPath}
                         alt="Lab Logo"
                         crossOrigin="anonymous"
-                        className="w-16 h-16 object-contain"
+                        style={{
+                            width: "64px",
+                            height: "64px",
+                            objectFit: "contain",
+                        }}
                         onError={(e) => (e.target.style.display = "none")}
                     />
                     <div>
-                        <h1 className="text-2xl font-extrabold text-red-700 uppercase leading-tight">
+                        <h1
+                            style={{
+                                fontSize: "20px",
+                                fontWeight: 800,
+                                color: "#b91c1c", // red-700
+                                textTransform: "uppercase",
+                                lineHeight: "1.2",
+                            }}
+                        >
                             Maruti Nisarg Laboratory (Patho)
                         </h1>
                     </div>
                 </div>
             </div>
 
-            <div className="border-t-2 border-red-600 mt-2 pt-2 flex justify-between text-sm">
+            {/* Divider Line */}
+            <div
+                style={{
+                    borderTop: "2px solid #dc2626", // red-600
+                    marginTop: "8px",
+                    paddingTop: "8px",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    fontSize: "13px",
+                }}
+            >
+                {/* Left Section */}
                 <div>
-                    <p className="font-semibold text-red-700">Heena Modh</p>
+                    <p style={{ fontWeight: 600, color: "#b91c1c" }}>Heena Modh</p>
                     <p><em>B.Sc. Pg.DMLT</em></p>
                     <p>Mo. 9925392485</p>
                 </div>
 
-                <div className="text-center text-sm">
-                    <p className="font-semibold">Time - 8.30 am to 8.00 pm</p>
-                    <p className="font-semibold">Sun - Closed</p>
-                    <p className="font-semibold">
+                {/* Center Section */}
+                <div style={{ textAlign: "center" }}>
+                    <p style={{ fontWeight: 600 }}>Time - 8.30 am to 8.00 pm</p>
+                    <p style={{ fontWeight: 600 }}>Sun - Closed</p>
+                    <p style={{ fontWeight: 600 }}>
                         Nr. Nagrik Bank, Soni Bazar, Sinor-391115, Dist. Vadodara
                     </p>
                 </div>
 
-                <div className="text-right">
-                    <p className="font-semibold text-red-700">Pinakin Patel</p>
+                {/* Right Section */}
+                <div style={{ textAlign: "right" }}>
+                    <p style={{ fontWeight: 600, color: "#b91c1c" }}>Pinakin Patel</p>
                     <p><em>B.Sc. MLT</em></p>
                     <p>Mo. 8849082370</p>
                 </div>

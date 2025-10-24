@@ -1,4 +1,3 @@
-// src/components/ReportPreview.jsx
 import { useRef, useEffect, useState } from "react";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
@@ -60,19 +59,33 @@ function ReportPreview({ patientData, tests, includeHeader, reportName }) {
     };
 
     return (
-        <div className="mt-6">
+        <div style={{ marginTop: "24px" }}>
             <div
                 ref={reportRef}
-                className="bg-white p-6 rounded-lg shadow-md text-sm leading-relaxed"
+                style={{
+                    backgroundColor: "#ffffff",
+                    padding: "24px",
+                    borderRadius: "8px",
+                    boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+                    fontSize: "14px",
+                    lineHeight: "1.6",
+                }}
             >
                 {includeHeader && (
-                    <div className="mb-4">
+                    <div style={{ marginBottom: "16px" }}>
                         <CustomHeader />
                     </div>
                 )}
 
                 {localPatient && (
-                    <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
+                    <div
+                        style={{
+                            display: "grid",
+                            gridTemplateColumns: "1fr 1fr",
+                            gap: "12px",
+                            marginBottom: "16px",
+                        }}
+                    >
                         <p><strong>Patient ID:</strong> {localPatient.patientId}</p>
                         <p><strong>Name:</strong> {localPatient.name}</p>
                         <p><strong>Age:</strong> {localPatient.age}</p>
@@ -83,41 +96,69 @@ function ReportPreview({ patientData, tests, includeHeader, reportName }) {
                 )}
 
                 {localReportName && (
-                    <h3 className="text-center text-xl font-bold text-red-700 underline mb-3 uppercase tracking-wide">
+                    <h3
+                        style={{
+                            textAlign: "center",
+                            fontSize: "18px",
+                            fontWeight: "bold",
+                            color: "#b91c1c", // red-700
+                            textDecoration: "underline",
+                            marginBottom: "12px",
+                            textTransform: "uppercase",
+                            letterSpacing: "1px",
+                        }}
+                    >
                         🧾 {localReportName} Report
                     </h3>
                 )}
 
                 {localTests?.length > 0 ? (
-                    <table className="w-full border-collapse border border-gray-400 text-center">
-                        <thead className="bg-gray-200">
-                            <tr>
-                                <th className="border border-gray-400 p-1">Test Name</th>
-                                <th className="border border-gray-400 p-1">Result</th>
-                                <th className="border border-gray-400 p-1">Normal Range</th>
-                                <th className="border border-gray-400 p-1">Unit</th>
+                    <table
+                        style={{
+                            width: "100%",
+                            borderCollapse: "collapse",
+                            textAlign: "center",
+                        }}
+                    >
+                        <thead>
+                            <tr style={{ backgroundColor: "#e5e7eb" /* gray-200 */ }}>
+                                <th style={{ border: "1px solid #9ca3af", padding: "4px" }}>Test Name</th>
+                                <th style={{ border: "1px solid #9ca3af", padding: "4px" }}>Result</th>
+                                <th style={{ border: "1px solid #9ca3af", padding: "4px" }}>Normal Range</th>
+                                <th style={{ border: "1px solid #9ca3af", padding: "4px" }}>Unit</th>
                             </tr>
                         </thead>
                         <tbody>
                             {localTests.map((t, i) => (
                                 <tr key={i}>
-                                    <td className="border border-gray-400 p-1">{t.name}</td>
-                                    <td className="border border-gray-400 p-1">{t.result}</td>
-                                    <td className="border border-gray-400 p-1">{t.range}</td>
-                                    <td className="border border-gray-400 p-1">{t.unit}</td>
+                                    <td style={{ border: "1px solid #9ca3af", padding: "4px" }}>{t.name}</td>
+                                    <td style={{ border: "1px solid #9ca3af", padding: "4px" }}>{t.result}</td>
+                                    <td style={{ border: "1px solid #9ca3af", padding: "4px" }}>{t.range}</td>
+                                    <td style={{ border: "1px solid #9ca3af", padding: "4px" }}>{t.unit}</td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
                 ) : (
-                    <p className="text-center text-gray-500">No tests entered yet.</p>
+                    <p style={{ textAlign: "center", color: "#6b7280" /* gray-500 */ }}>
+                        No tests entered yet.
+                    </p>
                 )}
             </div>
 
-            <div className="mt-4 text-right">
+            <div style={{ marginTop: "16px", textAlign: "right" }}>
                 <button
                     onClick={handleSavePDF}
-                    className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition"
+                    style={{
+                        backgroundColor: "#16a34a", // green-600
+                        color: "#ffffff",
+                        padding: "8px 16px",
+                        borderRadius: "8px",
+                        border: "none",
+                        cursor: "pointer",
+                    }}
+                    onMouseOver={(e) => (e.target.style.backgroundColor = "#15803d")}
+                    onMouseOut={(e) => (e.target.style.backgroundColor = "#16a34a")}
                 >
                     Save as PDF
                 </button>
