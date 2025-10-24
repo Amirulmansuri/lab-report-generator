@@ -26,14 +26,14 @@ function HeaderToggle({ onToggle }) {
     );
 }
 
+// src/components/HeaderToggle.jsx
 export function CustomHeader() {
-    // ✅ Always load logo from /public (works on GitHub + localhost)
-    const logoPath = `${window.location.origin}/lab_logo1.png`;
+    // ✅ use import.meta.env.BASE_URL (Vite auto handles base path)
+    const logoPath = `${import.meta.env.BASE_URL}lab_logo1.png`;
 
     return (
         <div className="border-2 border-black p-3 rounded-md shadow-sm bg-white">
             <div className="flex justify-between items-center">
-                {/* Left side - Logo */}
                 <div className="flex items-center space-x-3">
                     <img
                         src={logoPath}
@@ -50,7 +50,6 @@ export function CustomHeader() {
                 </div>
             </div>
 
-            {/* Divider */}
             <div className="border-t-2 border-red-600 mt-2 pt-2 flex justify-between text-sm">
                 <div>
                     <p className="font-semibold text-red-700">Heena Modh</p>
