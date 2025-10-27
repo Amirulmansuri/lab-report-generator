@@ -8,8 +8,10 @@ export default function PatientInfo({ onSave }) {
         contact: "",
         date: "",
         patientId: "",
+        referredBy: "", // ✅ new field added
     });
 
+    const [isManualDoctor, setIsManualDoctor] = useState(false);
     const initialized = useRef(false);
 
     useEffect(() => {
@@ -46,7 +48,19 @@ export default function PatientInfo({ onSave }) {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setInfo({ ...info, [name]: value });
+
+        // Handle doctor selection separately
+        if (name === "referredBy") {
+            if (value === "manual") {
+                setIsManualDoctor(true);
+                setInfo((prev) => ({ ...prev, referredBy: "" }));
+            } else {
+                setIsManualDoctor(false);
+                setInfo((prev) => ({ ...prev, referredBy: value }));
+            }
+        } else {
+            setInfo((prev) => ({ ...prev, [name]: value }));
+        }
     };
 
     const handleSave = () => {
@@ -136,7 +150,7 @@ export default function PatientInfo({ onSave }) {
                         padding: "8px",
                         border: "1px solid #ccc",
                         borderRadius: "6px",
-                        backgroundColor: "#f3f4f6", // gray-100 equivalent
+                        backgroundColor: "#f3f4f6",
                     }}
                 />
 
@@ -153,13 +167,71 @@ export default function PatientInfo({ onSave }) {
                         fontWeight: 600,
                     }}
                 />
+
+                {/* ✅ New Dropdown for Doctor */}
+                <div style={{ gridColumn: "1 / span 2" }}>
+                    <label
+                        style={{
+                            display: "block",
+                            marginBottom: "6px",
+                            fontWeight: 500,
+                        }}
+                    >
+                        Referred By Doctor
+                    </label>
+                    <select
+                        name="referredBy"
+                        value={isManualDoctor ? "manual" : info.referredBy}
+                        onChange={handleChange}
+                        style={{
+                            padding: "8px",
+                            border: "1px solid #ccc",
+                            borderRadius: "6px",
+                            width: "100%",
+                            marginBottom: "6px",
+                        }}
+                    >
+                        <option value="">-- Select Doctor --</option>
+                        <option value="Dr. C. B. Patel">Dr. C. B. Patel</option>
+                        <option value="Dr. Maulik Patel">Dr. Maulik Patel</option>
+                        <option value="Dr. Jignesh Patel">Dr. Jignesh Patel</option>
+                        <option value="Dr. S. C. Pandya">Dr. S. C. Pandya</option>
+                        <option value="Dr. Jignesh Vasava">Dr. Jignesh Vasava</option>
+                        <option value="Dr. Nimit Patel">Dr. Nimit Patel</option>
+                        <option value="Dr. Rakesh Patel">Dr. Rakesh Patel</option>
+                        <option value="Dr. Imran Luhar">Dr. Imran Luhar</option>
+                        <option value="Dr. Rai">Dr. Rai</option>
+                        <option value="manual">✍️ Write Manually</option>
+                    </select>
+
+                    {isManualDoctor && (
+                        <input
+                            type="text"
+                            placeholder="Enter Doctor Name"
+                            value={info.referredBy}
+                            onChange={(e) =>
+                                setInfo((prev) => ({
+                                    ...prev,
+                                    referredBy: e.target.value,
+                                }))
+                            }
+                            style={{
+                                padding: "8px",
+                                border: "1px solid #ccc",
+                                borderRadius: "6px",
+                                width: "100%",
+                            }}
+                        />
+                    )}
+                </div>
             </div>
 
             <button
                 onClick={handleSave}
                 style={{
                     marginTop: "16px",
-                    backgroundColor: "#2563eb", // blue-600
+                    marginLeft: "670px",
+                    backgroundColor: "#2563eb",
                     color: "#ffffff",
                     padding: "8px 16px",
                     border: "none",

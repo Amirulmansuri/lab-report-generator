@@ -1,18 +1,18 @@
 {
     "Bilirubin": [
         {
-            "name": "Total Bilirubin",
-            "range": "0.3 - 1.2 mg/dL",
+            "name": "S. Bilirubin[Total]",
+            "range": "0.00 - 1.00 mg/dL",
             "unit": "mg/dL"
         },
         {
-            "name": "Direct Bilirubin",
-            "range": "0.1 - 0.3 mg/dL",
+            "name": "S. Bilirubin[Direct]",
+            "range": "0.00 - 0.25 mg/dL",
             "unit": "mg/dL"
         },
         {
-            "name": "Indirect Bilirubin",
-            "range": "0.2 - 0.9 mg/dL",
+            "name": "S. Bilirubin[Indirect]3",
+            "range": "0.17 - 0.98 mg/dL",
             "unit": "mg/dL"
         }
     ],

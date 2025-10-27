@@ -51,7 +51,7 @@ function TestEntry({ onSave }) {
             {/* ✅ Dynamic Report Heading */}
             {selectedReport && (
                 <h3 className="text-xl font-bold text-center text-red-700 uppercase mb-3 underline tracking-wide">
-                    🧾 {selectedReport} Report
+                    {selectedReport} Report
                 </h3>
             )}
 
@@ -91,9 +91,17 @@ function TestEntry({ onSave }) {
                 <div className="text-right mt-3">
                     <button
                         onClick={handleSaveTests}
-                        className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+                        style={{
+                            marginTop: "16px",
+                            backgroundColor: "#2563eb", // blue-600
+                            color: "#ffffff",
+                            padding: "8px 16px",
+                            border: "none",
+                            borderRadius: "6px",
+                            cursor: "pointer",
+                        }}
                     >
-                        💾 Save Report
+                        Save Report
                     </button>
                 </div>
             )}

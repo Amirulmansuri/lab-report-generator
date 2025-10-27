@@ -17,7 +17,7 @@ function HeaderToggle({ onToggle }) {
                 checked={includeHeader}
                 onChange={handleChange}
                 style={{
-                    accentColor: "#dc2626", // red-600
+                    accentColor: "#dc2626",
                     width: "16px",
                     height: "16px",
                 }}
@@ -29,7 +29,6 @@ function HeaderToggle({ onToggle }) {
     );
 }
 
-// ✅ Compatible version of CustomHeader
 export function CustomHeader() {
     const logoPath = `${import.meta.env.BASE_URL}lab_logo1.png`;
 
@@ -41,9 +40,9 @@ export function CustomHeader() {
                 borderRadius: "6px",
                 backgroundColor: "#fff",
                 boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+                marginBottom: "12px",
             }}
         >
-            {/* Header Top Section */}
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                     <img
@@ -60,9 +59,9 @@ export function CustomHeader() {
                     <div>
                         <h1
                             style={{
-                                fontSize: "20px",
+                                fontSize: "25px",
                                 fontWeight: 800,
-                                color: "#b91c1c", // red-700
+                                color: "#b91c1c",
                                 textTransform: "uppercase",
                                 lineHeight: "1.2",
                             }}
@@ -73,25 +72,22 @@ export function CustomHeader() {
                 </div>
             </div>
 
-            {/* Divider Line */}
             <div
                 style={{
-                    borderTop: "2px solid #dc2626", // red-600
+                    borderTop: "2px solid #dc2626",
                     marginTop: "8px",
                     paddingTop: "8px",
                     display: "flex",
                     justifyContent: "space-between",
-                    fontSize: "13px",
+                    fontSize: "15px",
                 }}
             >
-                {/* Left Section */}
                 <div>
                     <p style={{ fontWeight: 600, color: "#b91c1c" }}>Heena Modh</p>
                     <p><em>B.Sc. Pg.DMLT</em></p>
                     <p>Mo. 9925392485</p>
                 </div>
 
-                {/* Center Section */}
                 <div style={{ textAlign: "center" }}>
                     <p style={{ fontWeight: 600 }}>Time - 8.30 am to 8.00 pm</p>
                     <p style={{ fontWeight: 600 }}>Sun - Closed</p>
@@ -100,7 +96,6 @@ export function CustomHeader() {
                     </p>
                 </div>
 
-                {/* Right Section */}
                 <div style={{ textAlign: "right" }}>
                     <p style={{ fontWeight: 600, color: "#b91c1c" }}>Pinakin Patel</p>
                     <p><em>B.Sc. MLT</em></p>
