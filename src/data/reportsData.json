@@ -172,12 +172,12 @@
         {
             "name": "O Antigen",
             "range": "< 1:80",
-            "unit": "Titre"
+            "unit": "-"
         },
         {
             "name": "H Antigen",
             "range": "< 1:80",
-            "unit": "Titre"
+            "unit": "-"
         }
     ],
     "Semen": [
@@ -201,29 +201,29 @@
         {
             "name": "Sickle Cell Test",
             "range": "Negative",
-            "unit": ""
+            "unit": "-"
         }
     ],
     "Stool": [
         {
             "name": "Consistency",
             "range": "Formed",
-            "unit": ""
+            "unit": "-"
         },
         {
             "name": "Color",
             "range": "Brown",
-            "unit": ""
+            "unit": "-"
         },
         {
             "name": "Mucus",
             "range": "Absent",
-            "unit": ""
+            "unit": "-"
         },
         {
             "name": "Occult Blood",
             "range": "Negative",
-            "unit": ""
+            "unit": "-"
         }
     ],
     "Sugar": [
@@ -259,22 +259,22 @@
         {
             "name": "Color",
             "range": "Pale Yellow",
-            "unit": ""
+            "unit": "-"
         },
         {
             "name": "Reaction (pH)",
             "range": "5.0 - 7.5",
-            "unit": ""
+            "unit": "-"
         },
         {
             "name": "Protein",
             "range": "Absent",
-            "unit": ""
+            "unit": "-"
         },
         {
             "name": "Sugar",
             "range": "Absent",
-            "unit": ""
+            "unit": "-"
         },
         {
             "name": "Pus Cells",
